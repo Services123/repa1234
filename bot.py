@@ -345,7 +345,7 @@ def checkingOrders(bot,chat_id, order,job_queue,update):
 					print(e)
 				try:
 					bot.send_message(chat_id=chat_id,
-							text=u"💸 Оплатите заказ на сумму "+str(getOrderCost(order))+u' на кошелек XXX. Через 12 часов бронь на заказ пропадет.',
+							text="💸 Оплатите заказ на сумму "+str(getOrderCost(order))+' на кошелек XXX. Через 12 часов бронь на заказ пропадет.',
 							reply_markup=kb_markup)
 				except Exception as e:
 					print(e)
