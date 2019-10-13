@@ -336,7 +336,9 @@ def checkingOrders(bot,chat_id, order,job_queue,update):
 	orders = db.orders.find()
 	if len(list(orders)) != 0:
 		for x in db.orders.find():
+			print('Debug 1')
 			if x['order_id'] == order:
+				print('Order 1')
 				status = db.clients.fint_one({'chat_id':chat_id})
 				if status['order_id'] == None:
 					updateClientOrder(chat_id, order,job_queue,update)
