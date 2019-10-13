@@ -339,7 +339,6 @@ def checkingOrders(bot,chat_id, order,job_queue,update):
 			print('Debug 1')
 			if x['order_id'] == order:
 				print('Order 1')
-				status = db.clients.fint_one({'chat_id':chat_id})
 				updateClientOrder(chat_id, order,job_queue,update)
 				bot.send_message(chat_id=chat_id,
 							text=u"💸 Оплатите заказ на сумму "+str(getOrderCost(order))+u' на кошелек XXX. Через 12 часов бронь на заказ пропадет.',
