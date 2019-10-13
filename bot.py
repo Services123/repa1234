@@ -340,17 +340,11 @@ def checkingOrders(bot,chat_id, order,job_queue,update):
 			if x['order_id'] == order:
 				print('Order 1')
 				status = db.clients.fint_one({'chat_id':chat_id})
-				if status['order_id'] == None:
-					updateClientOrder(chat_id, order,job_queue,update)
-					bot.send_message(chat_id=chat_id,
+				updateClientOrder(chat_id, order,job_queue,update)
+				bot.send_message(chat_id=chat_id,
 							text=u"💸 Оплатите заказ на сумму "+str(getOrderCost(order))+u' на кошелек XXX. Через 12 часов бронь на заказ пропадет.',
 							reply_markup=kb_markup)
-					break
-				else:
-					bot.send_message(chat_id=chat_id,
-							text=u"💸 Сначала оплатите предыдущий заказ",
-							reply_markup=kb_markup)
-					break
+				break
 
 
 def callbackQueryHandler(bot, update,job_queue):
